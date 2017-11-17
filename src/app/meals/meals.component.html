@@ -3,6 +3,7 @@
   <li *ngFor="let meal of meals"
     [class.selected]="meal === selectedMeal"
     (click)="onSelect(meal)">
+    {{meal.name}}
   </li>
 </ul>
 
