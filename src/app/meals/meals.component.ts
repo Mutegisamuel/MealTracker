@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Meal} from '../meal'
+import { MEALS } from '../mock-meals'
 
 @Component({
   selector: 'app-meals',
@@ -7,14 +8,18 @@ import {Meal} from '../meal'
   styleUrls: ['./meals.component.css']
 })
 export class MealsComponent implements OnInit {
-  meal: Meal ={
-    caloris:100,
-    name: 'Rise'
-  }
+meals = MEALS;
+
+selectedMeal: Meal;
+
+
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSelect(meal: Meal): void {
+    this.selectedMeal = meal;
+  }
 }

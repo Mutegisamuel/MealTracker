@@ -1,7 +1,19 @@
-<h2>{{ meal.name | uppercase }} Details</h2>
-<div><span>id: </span>{{meal.id}}</div>
-<div>
+<h2>My MEALS</h2>
+<ul class="meals">
+  <li *ngFor="let meal of meals"
+    [class.selected]="meal === selectedMeal"
+    (click)="onSelect(meal)">
+  </li>
+</ul>
+
+<div *ngIf="selectedMeal">
+
+  <h2>{{ selectedMeal.name | uppercase }} Details</h2>
+  <div><span>caloris: </span>{{selectedMeal.caloris}}</div>
+  <div>
     <label>name:
-      <input [(ngModel)]="meal.name" placeholder="name">
+      <input [(ngModel)]="selectedMeal.name" placeholder="name">
     </label>
+  </div>
+
 </div>
